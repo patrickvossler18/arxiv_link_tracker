@@ -100,6 +100,8 @@ def show_clicks():
         res = get_all_clicks(request.args.get('user_id'))
         print(res)
         return  jsonify(res)
+    else:
+        return "fail"
        
 
 if __name__ == '__main__':
