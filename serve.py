@@ -95,6 +95,7 @@ def webhook():
 @app.route('/clicks', methods=['GET', 'POST'])
 def show_clicks():
     verify_token = request.args.get('verify_token')
+    print(verify_token)
     if verify_token == WEBHOOK_VERIFY_TOKEN:
         # just spit out json of the results from the query
         res = get_all_clicks(request.args.get('user_id'))
