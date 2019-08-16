@@ -11,7 +11,7 @@ def temp_token():
     return temp_token.decode('utf-8')
 
 
-WEBHOOK_VERIFY_TOKEN = open('token.txt', "r").read()
+WEBHOOK_VERIFY_TOKEN = open('token.txt', "r").read().strip()
 # WEBHOOK_VERIFY_TOKEN = os.getenv('WEBHOOK_VERIFY_TOKEN')
 # CLIENT_AUTH_TIMEOUT = 24 # in Hours
 
@@ -95,7 +95,6 @@ def webhook():
 @app.route('/clicks', methods=['GET', 'POST'])
 def show_clicks():
     verify_token = request.args.get('verify_token')
-    print(verify_token)
     if verify_token == WEBHOOK_VERIFY_TOKEN:
         # just spit out json of the results from the query
         res = get_all_clicks(request.args.get('user_id'))
@@ -111,4 +110,4 @@ if __name__ == '__main__':
         token = temp_token()
         print('Token: %s' % token)
         WEBHOOK_VERIFY_TOKEN = token
-    app.run(port=8675, host= '0.0.0.0',debug=True)
+    app.run(port=8675, host= '0.0.0.0')
