@@ -69,7 +69,7 @@ python-docx==0.8.10
 pytz==2018.9
 PyYAML==3.13
 rauth==0.7.3
-requests==2.18.3
+requests==2.20.0
 rpy2==2.9.5
 s3transfer==0.2.0
 scikit-learn==0.20.2
